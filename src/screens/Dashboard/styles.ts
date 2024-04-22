@@ -59,7 +59,7 @@ export const ContainerCards = styled.ScrollView.attrs({
   horizontal: true,
   showsHorizontalScrollIndicator: false,
   contentContainerStyle: {
-    paddingLeft: 24,
+    paddingLeft: 22,
   },
 })`
   position: absolute;

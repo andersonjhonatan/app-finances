@@ -1,18 +1,38 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useCallback } from 'react'
+
+import { ThemeProvider } from 'styled-components'
+import theme from './src/global/styles/theme'
+
+import { Dashboard } from './src/screens/Dashboard'
+
+import { useFonts } from 'expo-font'
+import * as SplashScreen from 'expo-splash-screen'
+
+import { View } from 'react-native'
+
+SplashScreen.preventAutoHideAsync()
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
-}
+  const [fontsLoaded, fontError] = useFonts({
+    'Poppins-Bold': require('./assets/fonts/Poppins-Bold.ttf'),
+    'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-Medium': require('./assets/fonts/Poppins-Medium.ttf'),
+  })
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync()
+    }
+  }, [fontsLoaded, fontError])
+
+  if (!fontsLoaded && !fontError) {
+    return null
+  }
+  return (
+    <ThemeProvider theme={theme}>
+      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      <Dashboard />
+      </View>
+    </ThemeProvider>
+  )
+}

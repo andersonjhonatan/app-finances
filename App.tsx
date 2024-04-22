@@ -29,10 +29,10 @@ export default function App() {
     return null
   }
   return (
-    <ThemeProvider theme={theme}>
-      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-      <Dashboard />
-      </View>
-    </ThemeProvider>
+    <View onLayout={onLayoutRootView}>
+      <ThemeProvider theme={theme}>
+        <Dashboard />
+      </ThemeProvider>
+    </View>
   )
 }

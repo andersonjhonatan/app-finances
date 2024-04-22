@@ -4,7 +4,6 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 import { Feather } from '@expo/vector-icons'
 
 export const Container = styled.View`
-  flex: 1;
   background-color: ${({ theme }: { theme: ThemeType }) => theme.colors.background};
 `
 
@@ -53,4 +52,9 @@ export const UserName = styled.Text`
 export const Icon = styled(Feather)`
   font-size: ${RFValue(24)}px;
   color: white;
+`
+
+export const ContainerCards = styled.View`
+  flex-direction: column;
+  gap: ${RFValue(10)}px;
 `

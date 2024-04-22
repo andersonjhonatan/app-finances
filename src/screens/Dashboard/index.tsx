@@ -10,7 +10,9 @@ import {
   UserName,
   Icon,
   User,
+  ContainerCards,
 } from './styles'
+import Cards from '../../components/Cards'
 
 export function Dashboard() {
   return (
@@ -29,6 +31,11 @@ export function Dashboard() {
           <Icon name="power" />
         </UserWrapper>
       </Header>
+      <ContainerCards>
+        <Cards title="Entrada" />
+        <Cards title="Saida" />
+        <Cards title="Total" $total />
+      </ContainerCards>
     </Container>
   )
 }

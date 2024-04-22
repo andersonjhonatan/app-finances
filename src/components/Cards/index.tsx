@@ -4,18 +4,21 @@ import { Container, Header, Title, Icon, Footer, Amount, LastTransaction } from 
 interface Props {
   title: string
   $total?: boolean
+  $entrada?: boolean
+  $saida?: boolean
+  name: string
 }
 
 const Cards = ({ ...props }: Props) => {
   return (
-    <Container  {...props} >
+    <Container {...props}>
       <Header>
-        <Title>{props.title}</Title>
-        <Icon name="arrow-up-circle" />
+        <Title {...props}>{props.title}</Title>
+        <Icon name={props.name} {...props} />
       </Header>
       <Footer>
-        <Amount>R$ 17.400,00</Amount>
-        <LastTransaction>Última entrada dia 13 de abril</LastTransaction>
+        <Amount {...props}>R$ 17.400,00</Amount>
+        <LastTransaction {...props}>Última entrada dia 13 de abril</LastTransaction>
       </Footer>
     </Container>
   )

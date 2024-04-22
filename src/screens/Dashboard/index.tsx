@@ -32,9 +32,9 @@ export function Dashboard() {
         </UserWrapper>
       </Header>
       <ContainerCards>
-        <Cards title="Entrada" />
-        <Cards title="Saida" />
-        <Cards title="Total" $total />
+        <Cards title="Entrada" $entrada name="arrow-up-circle" />
+        <Cards title="Saida" $saida name="arrow-down-circle" />
+        <Cards title="Total" $total name="dollar-sign" />
       </ContainerCards>
     </Container>
   )

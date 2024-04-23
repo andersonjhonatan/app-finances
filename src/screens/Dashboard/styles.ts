@@ -64,4 +64,17 @@ export const ContainerCards = styled.ScrollView.attrs({
 })`
   position: absolute;
   margin-top: ${RFPercentage(24)}px;
+  z-index: 5;
+`
+
+export const ContainerTransiction = styled.View`
+  flex: 100%;
+  padding: 0 28px;
+  margin-top: ${RFPercentage(10)}px;
+`
+
+export const Listagem = styled.Text`
+  color: ${({ theme }: { theme: ThemeType }) => theme.colors.text_dark};
+  font-size: ${RFValue(18)}px;
+  font-family: ${({ theme }: { theme: ThemeType }) => theme.fonts.regular};
 `

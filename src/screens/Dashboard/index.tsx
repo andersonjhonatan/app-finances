@@ -11,8 +11,12 @@ import {
   Icon,
   User,
   ContainerCards,
+  ContainerTransiction,
+  Listagem,
 } from './styles'
 import Cards from '../../components/Cards'
+import { Image, Text, View } from 'react-native'
+import TransictionCards from '../../components/TransictionCards'
 
 export function Dashboard() {
   return (
@@ -32,10 +36,29 @@ export function Dashboard() {
         </UserWrapper>
       </Header>
       <ContainerCards>
-        <Cards title="Entradas" $entrada name="arrow-up-circle" />
-        <Cards title="Saidas" $saida name="arrow-down-circle" />
-        <Cards title="Total" $total name="dollar-sign" />
+        <Cards
+          title="Entradas"
+          amout="R$ 17.400,00"
+          lastTransaction="Última entrada dia 13 de abril"
+          type="up"
+        />
+        <Cards
+          title="Saidas"
+          amout="R$ 1.000,00"
+          lastTransaction="Última saída dia 13 de abril"
+          type="down"
+        />
+        <Cards
+          title="Total"
+          amout="R$ 16.400,00"
+          lastTransaction="01 a 16 de abril"
+          type="total"
+        />
       </ContainerCards>
+      <ContainerTransiction>
+      <Listagem>Listagem</Listagem>
+        <TransictionCards />
+      </ContainerTransiction>
     </Container>
   )
 }

@@ -3,22 +3,29 @@ import { Container, Header, Title, Icon, Footer, Amount, LastTransaction } from 
 
 interface Props {
   title: string
-  $total?: boolean
-  $entrada?: boolean
-  $saida?: boolean
-  name: string
+  amout?: string
+  lastTransaction?: string
+  type: 'up' | 'down' | 'total'
 }
 
-const Cards = ({ ...props }: Props) => {
+type IconName = 'arrow-up-circle' | 'arrow-down-circle' | 'dollar-sign'
+
+const icon: Record<Props['type'], IconName> = {
+  up: 'arrow-up-circle',
+  down: 'arrow-down-circle',
+  total: 'dollar-sign',
+}
+
+const Cards = ({ title, amout, lastTransaction, type }: Props) => {
   return (
-    <Container {...props}>
+    <Container type={type}>
       <Header>
-        <Title {...props}>{props.title}</Title>
-        <Icon name={props.name} {...props} />
+        <Title type={type}>{title}</Title>
+        <Icon name={icon[type]} type={type} />
       </Header>
       <Footer>
-        <Amount {...props}>R$ 17.400,00</Amount>
-        <LastTransaction {...props}>Última entrada dia 13 de abril</LastTransaction>
+        <Amount type={type}>{amout}</Amount>
+        <LastTransaction type={type}>{lastTransaction}</LastTransaction>
       </Footer>
     </Container>
   )

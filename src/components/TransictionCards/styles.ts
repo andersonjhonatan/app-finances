@@ -5,6 +5,7 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 export const Container = styled.View`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.shape};
+  margin-bottom: ${RFValue(16)}px;
 `
 export const Listagem = styled.Text``
 export const ContainerTransicition = styled.View`

@@ -77,4 +77,7 @@ export const Listagem = styled.Text`
   color: ${({ theme }: { theme: ThemeType }) => theme.colors.text_dark};
   font-size: ${RFValue(18)}px;
   font-family: ${({ theme }: { theme: ThemeType }) => theme.fonts.regular};
+  margin-bottom: ${RFValue(16)}px;
 `
+
+export const InfoTransction = styled.FlatList``

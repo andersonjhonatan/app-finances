@@ -13,12 +13,56 @@ import {
   ContainerCards,
   ContainerTransiction,
   Listagem,
+  InfoTransction,
 } from './styles'
 import Cards from '../../components/Cards'
-import { Image, Text, View } from 'react-native'
-import TransictionCards from '../../components/TransictionCards'
+import { DataProps, TransictionCards } from '../../components/TransictionCards'
+
+type ItemData = {
+  title: string
+  amount: string
+  category: {
+    name: string
+    icon: string
+  }
+  date: string
+}
 
 export function Dashboard() {
+  const DATA: ItemData[] = [
+    {
+      title: 'Desenvolvimento de site',
+      amount: 'R$ 16.400,00',
+      category: { name: 'Alimentação', icon: 'dollar-sign' },
+      date: '13/04/2022',
+    },
+
+    {
+      title: 'Vendas',
+      amount: 'R$ 1.400,00',
+      category: { name: 'Alimentação', icon: 'dollar-sign' },
+      date: '13/04/2022',
+    },
+    {
+      title: 'Vendas',
+      amount: 'R$ 1.400,00',
+      category: { name: 'Alimentação', icon: 'dollar-sign' },
+      date: '13/04/2022',
+    },
+    {
+      title: 'Vendas',
+      amount: 'R$ 1.400,00',
+      category: { name: 'Alimentação', icon: 'dollar-sign' },
+      date: '13/04/2022',
+    },
+    {
+      title: 'Vendas',
+      amount: 'R$ 1.400,00',
+      category: { name: 'Alimentação', icon: 'dollar-sign' },
+      date: '13/04/2022',
+    }
+  ]
+
   return (
     <Container>
       <Header>
@@ -35,6 +79,7 @@ export function Dashboard() {
           <Icon name="power" />
         </UserWrapper>
       </Header>
+
       <ContainerCards>
         <Cards
           title="Entradas"
@@ -55,9 +100,16 @@ export function Dashboard() {
           type="total"
         />
       </ContainerCards>
+
       <ContainerTransiction>
-      <Listagem>Listagem</Listagem>
-        <TransictionCards />
+        <Listagem>Listagem</Listagem>
+
+        <InfoTransction
+          data={DATA}
+          renderItem={(item) => <TransictionCards data={item.item} />}
+          contentContainerStyle={{ paddingBottom: 20 }}
+          showsVerticalScrollIndicator={false}
+        />
       </ContainerTransiction>
     </Container>
   )

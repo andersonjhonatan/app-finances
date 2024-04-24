@@ -2,7 +2,6 @@ import React from 'react'
 
 import {
   Container,
-  Listagem,
   ContainerTransicition,
   InfoTransction,
   Title,
@@ -14,26 +13,38 @@ import {
   DataTransiction,
 } from './styles'
 
-type Props = {}
+interface Category {
+  name: string
+  icon: string
+}
 
-const TransictionCards = (props: Props) => {
+interface Data {
+  title: string
+  amount: string
+  category: Category
+  date: string
+}
+
+export interface DataProps {
+  data: Data
+}
+
+export const TransictionCards = ({ data }: DataProps) => {
   return (
     <Container>
       <ContainerTransicition>
         <InfoTransction>
-          <Title>Desenvolvimento de site</Title>
-          <Amount>R$ 12.000,00</Amount>
+          <Title>{data.title}</Title>
+          <Amount>{data.amount}</Amount>
         </InfoTransction>
         <CategoryInfo>
           <Category>
             <Icon name="dollar-sign" />
-            <TypeCategory>Vendas</TypeCategory>
+            <TypeCategory>{data.category.name}</TypeCategory>
           </Category>
-          <DataTransiction>13/04/2021</DataTransiction>
+          <DataTransiction>{data.date}</DataTransiction>
         </CategoryInfo>
       </ContainerTransicition>
     </Container>
   )
 }
-
-export default TransictionCards
